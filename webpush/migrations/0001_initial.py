@@ -18,7 +18,7 @@ class Migration(SchemaMigration):
         ))
         db.create_table(u'PushInformation', (
             ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-            ('group', models.ForeignKey(related_name='webpush_info', blank=True, to='webpush.Group', null=True)),
+            ('group', models.ForeignKey(related_name='webpush_info', blank=True, to=orm['webpush.Group'], null=True)),
         ))
         db.create_table(u'SubscriptionInfo', (
             ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -33,6 +33,6 @@ class Migration(SchemaMigration):
             ('endpoint', models.URLField(max_length=255)),
             ('auth', models.CharField(max_length=100)),
             ('p256dh', models.CharField(max_length=100)),
-            ('subscription', models.ForeignKey(related_name='webpush_info', to='webpush.SubscriptionInfo')),
+            ('subscription', models.ForeignKey(related_name='webpush_info', to=orm['webpush.SubscriptionInfo'])),
             ('user', models.ForeignKey(related_name='webpush_info', blank=True, to=orm['authentication.User'], null=True)),
         ))
