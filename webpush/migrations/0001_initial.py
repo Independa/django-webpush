@@ -36,5 +36,3 @@ class Migration(SchemaMigration):
             ('subscription', models.ForeignKey(related_name='webpush_info', to='webpush.SubscriptionInfo')),
             ('user', models.ForeignKey(related_name='webpush_info', blank=True, to=orm['authentication.User'], null=True)),
         ))
-    def backwards(self, orm):
-        
