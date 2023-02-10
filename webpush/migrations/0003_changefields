@@ -1,0 +1,17 @@
+# encoding: utf-8
+import datetime
+from south.db import db
+from south.v2 import SchemaMigration
+from django.db import models
+from django.conf import settings
+
+
+class Migration(SchemaMigration):
+
+    def forwards(self, orm):
+        # Adding field 'UserEventEscalation.escalation_user_type'
+        db.add_column(u'event_usereventescalation', 'escalation_user_type',
+                      self.gf('django.db.models.fields.IntegerField')(default=0, blank=True),
+                      keep_default=False)
+            ('subscription', models.ForeignKey(related_name='webpush_info', to=orm['webpush.SubscriptionInfo'])),
+            ('user', models.ForeignKey(related_name='webpush_info', blank=True, to=orm['authentication.User'], null=True)),
