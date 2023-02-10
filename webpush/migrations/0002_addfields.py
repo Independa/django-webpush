@@ -11,8 +11,6 @@ class Migration(SchemaMigration):
         db.create_table(u'PushInformation', (
             ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
             ('group', models.ForeignKey(related_name='webpush_info', blank=True, to=orm['webpush.Group'], null=True)),
-            ('subscription', models.ForeignKey(related_name='webpush_info', to=orm['webpush.SubscriptionInfo'])),
-            ('user', models.ForeignKey(related_name='webpush_info', blank=True, to=orm['authentication.User'], null=True)),
         ))
         db.send_create_signal('webpush', ['PushInformation'])
         db.create_table(u'SubscriptionInfo', (
